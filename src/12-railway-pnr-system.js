@@ -85,7 +85,8 @@ export function processRailwayPNR(pnrData) {
   const trainInfo = `Train: ${number} - ${name} | ${from} → ${to} | Class: ${pnrData.classBooked}`;
 
   const passengers = pnrData.passengers.map(p => {
-    let statusLabel;
+    // let statusLabel;
+    let statusLabel = "WAITING";
     if (p.current === "CAN") statusLabel = "CANCELLED";
     else if (p.current.startsWith("WL")) statusLabel = "WAITING";
     else if (p.current.startsWith("RAC")) statusLabel = "RAC";
